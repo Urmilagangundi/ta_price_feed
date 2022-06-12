@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Pricing Feeds</h1>
+    <table id="search-results">
+        <tr>
+            <th>Store ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>SKU</th>
+            <th>Date</th>
+            <th>Edit Operation</th>
+        </tr>
+{% for i in range(count) %}
+        <tr>
+            <td> {{ results[i].store_id }} </td>
+            <td> {{ results[i].product_name }} </td>
+            <td> {{ results[i].price }} </td>
+            <td> {{ results[i].sku }} </td>
+            <td> {{ results[i].product_date }} </td>
+
+            <td>
+                <a href="/edit/{{ results[i].id }}?search_context={{ search_context }}">Edit record</a>
+            </td>
+
+        </tr>
+{% endfor %}
+    </table>
+{% endblock %}

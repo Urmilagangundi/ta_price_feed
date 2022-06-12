@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-container">
+    <h3>Edit product details</h3>
+
+    {% if search_context %}
+        <form id="edit-form" action="/edit/{{ result.id }}?search_context={{ search_context }}" method="POST" enctype="multipart/form-data">
+    {% else %}
+        <form id="edit-form" action="/edit/{{ result.id }}" method="POST" enctype="multipart/form-data">
+    {% endif %}
+    <!-- <form id="edit-form" action="/edit/{{ result.id }}" method="POST" enctype="multipart/form-data"> -->
+        <div>
+            <label>Store ID: </label>
+            <input type="text" name="store_id" value={{ result.store_id }} oninput="this.value=Math.round(this.value);">
+        </div>
+        <div>
+            <label>Product Name: </label>
+            <input type="text" name="product_name" value={{ result.product_name }}>
+        </div>
+        <div>
+            <label>Price: </label>
+            <input type="float" name="price" value={{ result.price }}>
+        </div>
+        <div>
+            <label>SKU: </label>
+            <input type="text" name="sku" value={{ result.sku }}>
+        </div>
+        <div>
+            <label>Date: </label>
+            <input type="date" name="product_date" value={{ result.product_date }}>
+        </div>
+        <input type="submit" />
+    </form>
+</div>
+{% endblock %}

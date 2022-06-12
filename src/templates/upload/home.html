@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-container">
+    <h3>Search</h3>
+    <form id="search-form" action="/search" method="POST" enctype="multipart/form-data">
+        <input type="text" name="store_id" placeholder="Enter store id" oninput="this.value = Math.round(this.value);"/> <br> <br>
+        <input type="text" name="product_name" placeholder="Enter product name"/> <br> <br>
+        <input type="float" name="price" placeholder="Enter product price"/> <br> <br>
+        <input type="date" name="date" placeholder="Enter date" /> <br> <br>
+        <input type="sku" name="sku" placeholder="Enter SKU"/> <br> <br>
+        <input type="submit" placeholder="submit" /> <br> <br>
+    </form>
+</div>
+
+<div class="form-container">
+    <h3>Upload new records</h3>
+    <form id="upload-form" action="/uploader" method="POST" enctype="multipart/form-data">
+        <input type="file" name="price_feeds" />
+        <input type="submit" />
+    </form>
+</div>
+{% endblock %}
